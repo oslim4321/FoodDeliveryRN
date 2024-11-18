@@ -1,10 +1,11 @@
-import { Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 type Props = {
   title: string;
   handlePress?: () => void;
   containerStyle?: string;
   textStyle?: string;
   isLoading?: boolean;
+  icon?: JSX.Element; // Optional prop for an icon
 };
 
 const CustomButton = ({
@@ -13,17 +14,22 @@ const CustomButton = ({
   containerStyle,
   isLoading,
   textStyle,
+  icon,
 }: Props) => {
   return (
     <TouchableOpacity
       onPress={handlePress}
       activeOpacity={0.7}
-      className={`bg-secondary rounded-xl min-h-[64px] justify-center items-center ${containerStyle} ${
+      className={`rounded-full min-h-[64px] justify-center items-center ${containerStyle} ${
         isLoading ? "opacity-50" : ""
       }`}
       disabled={isLoading}
     >
-      <Text className={` font-psemibold ${textStyle}`}>{title}</Text>
+      <View className="flex-row items-center justify-center">
+        {icon && <View className="mr-2">{icon}</View>}{" "}
+        {/* Display icon if provided */}
+        <Text className={`font-psemibold ${textStyle}`}>{title}</Text>
+      </View>
     </TouchableOpacity>
   );
 };

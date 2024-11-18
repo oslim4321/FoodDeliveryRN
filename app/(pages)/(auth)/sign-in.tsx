@@ -68,13 +68,12 @@ function SignIn() {
         </View>
 
         {/* Submit Button */}
-        <TouchableOpacity onPress={handleSubmit(onSubmit)} className="w-full">
-          <CustomButton
-            containerStyle="bg-secondary w-full py-4 rounded-lg"
-            title="Get Started"
-            textStyle="text-white font-bold"
-          />
-        </TouchableOpacity>
+        <CustomButton
+          containerStyle="bg-secondary w-full py-4 rounded-lg"
+          title="Get Started"
+          textStyle="text-white font-bold"
+          handlePress={handleSubmit(onSubmit)}
+        />
 
         {/* Sign Up Link */}
         <View className="flex-row justify-center items-center mt-6">
